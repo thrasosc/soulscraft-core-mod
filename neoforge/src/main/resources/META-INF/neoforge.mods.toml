@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[2,)"
-#issueTrackerURL = ""
+issueTrackerURL = "https://github.com/thrasosc/soulscraft-core-mod/issues"
 license = "GNU GPL 3.0"
 
 [[mods]]
 modId = "soulscraft"
 version = "${version}"
 displayName = "SoulsCraft"
-authors = ""
+authors = "Pixel Dream Studios, thrasosc, banditbytes, veroxuniverse, alshanex"
 description = '''
-
+Core Mod for the SoulsCraft Series of Mods
 '''
 #logoFile = ""
 
@@ -32,6 +32,13 @@ modId = "architectury"
 type = "required"
 versionRange = "[13.0.8,)"
 ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.soulscraft]]
+modId = "azurelib"
+type = "required"
+versionRange = "[2.3.28,)"
+ordering = "NONE"
 side = "BOTH"
 
 [[mixins]]

@@ -3,12 +3,18 @@
   "id": "soulscraft",
   "version": "${version}",
   "name": "SoulsCraft",
-  "description": "",
+  "description": "Core Mod for the SoulsCraft Series of Mods",
   "authors": [
-    ""
+    "Pixel Dream Studios",
+    "thrasosc",
+    "banditbytes",
+    "veroxuniverse",
+    "alshanex"
   ],
   "contact": {
-    "homepage": ""
+    "homepage": "https://modrinth.com/mod/soulscraft-core",
+    "sources": "https://github.com/thrasosc/soulscraft-core-mod",
+    "issues": "https://github.com/thrasosc/soulscraft-core-mod/issues"
   },
   "license": "GPL-3.0",
   "icon": "assets/soulscraft/icon.png",
@@ -16,9 +22,6 @@
   "entrypoints": {
     "main": [
       "net.pixeldreamstudios.soulscraft.fabric.SoulsCraftFabric"
-    ],
-    "client": [
-      "net.pixeldreamstudios.soulscraft.fabric.client.SoulsCraftFabricClient"
     ]
   },
   "mixins": [
@@ -29,6 +32,7 @@
     "minecraft": "~1.21.1",
     "java": ">=21",
     "architectury": ">=13.0.8",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "azurelib": ">=2.3.4"
   }
 }
