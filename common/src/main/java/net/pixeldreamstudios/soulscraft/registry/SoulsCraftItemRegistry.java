@@ -22,7 +22,11 @@ public class SoulsCraftItemRegistry {
      * @return The DeferredRegister for the given mod ID.
      */
     private static DeferredRegister<Item> getOrCreateRegister(String modId) {
-        return MOD_REGISTERS.computeIfAbsent(modId, id -> DeferredRegister.create(id, Registries.ITEM));
+        SoulsCraft.LOGGER.info("Checking or creating DeferredRegister for mod ID: " + modId);
+        return MOD_REGISTERS.computeIfAbsent(modId, id -> {
+            SoulsCraft.LOGGER.info("Creating DeferredRegister for mod ID: " + id);
+            return DeferredRegister.create(id, Registries.ITEM);
+        });
     }
 
     /**
@@ -38,12 +42,17 @@ public class SoulsCraftItemRegistry {
         if (REGISTERED_ITEMS.containsKey(fullName)) {
             throw new IllegalArgumentException("Item " + fullName + " is already registered!");
         }
+
+        // Add a log to check the registration flow
+        SoulsCraft.LOGGER.info("Registering item: " + fullName);
+
         DeferredRegister<Item> register = getOrCreateRegister(modId);
         RegistrySupplier<Item> item = register.register(name, itemSupplier);
+        SoulsCraft.LOGGER.info("Item registered: " + fullName);
+
         REGISTERED_ITEMS.put(fullName, item);
         return item;
     }
-
 
     /**
      * Retrieves a registered item by mod ID and name.
