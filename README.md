@@ -7,7 +7,9 @@
    
    First, install the Minecraft Development plugin for IntelliJ. In IntelliJ, create a new project and select "Minecraft" from the generators. Select "Architectury" from the "Templates", and then fill in the name of the mod at the top. The default "Main Class" name is a bit messed up, so make sure to rename it using [PascalCase](https://www.theserverside.com/definition/Pascal-case). In the end it should look something like this:
 
-   ![project template](...)
+   <p align="center">
+      <img width="700" alt="IntelliJ Project Template" src="https://github.com/user-attachments/assets/8afcd699-ea25-4281-a6bb-e96f095a552b" />
+   </p>
    
    After creating the project, wait for it to finish building. Then, in the root `build.gradle` file, include the following in the `repositories` inside of `subprojects`:
    ```groovy
