@@ -58,10 +58,12 @@ To register an item call `SoulsCraftItemRegistry.register()` and provide the mod
 ```java
 public class ItemRegistry {
     public static void init() {
-        SoulsCraftItemRegistry.registerItem(SoulsCraftTest.MOD_ID, "test_item", () -> new Item(new Item.Properties()));
+        SoulsCraftItemRegistry.registerItem(TestMod.MOD_ID, "test_item", () -> new Item(new Item.Properties()));
     }
 }
 ```
+
+After calling `ItemRegistry.init()` in your main class, make sure to call `SoulsCraftItemRegistry.init(TestMod.MOD_ID);` *after* it.
 
 ---
 
