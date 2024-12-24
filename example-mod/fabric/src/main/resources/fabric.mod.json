@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "soulscraft_tarnished_legacy",
+  "version": "${version}",
+  "name": "SoulsCraft Tarnished Legacy",
+  "description": "",
+  "authors": [
+    ""
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/soulscraft_tarnished_legacy/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.pixeldreamstudios.soulscraft_tarnished_legacy.fabric.SoulsCraftTarnishedLegacyFabric"
+    ]
+  },
+  "mixins": [
+    "soulscraft_tarnished_legacy.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "architectury": ">=13.0.8",
+    "fabric-api": "*",
+    "azurelib": ">=2.3.4",
+    "soulscraft": ">=1.0"
+  }
+}

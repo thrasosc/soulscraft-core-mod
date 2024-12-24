@@ -1,0 +1,52 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+#issueTrackerURL = ""
+license = "GNU GPL 3.0"
+
+[[mods]]
+modId = "soulscraft_tarnished_legacy"
+version = "${version}"
+displayName = "SoulsCraft Tarnished Legacy"
+authors = ""
+description = '''
+
+'''
+#logoFile = ""
+
+[[dependencies.soulscraft_tarnished_legacy]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.soulscraft_tarnished_legacy]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.soulscraft_tarnished_legacy]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.soulscraft_tarnished_legacy]]
+modId = "azurelib"
+type = "required"
+versionRange = "[2.3.28,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.soulscraft_tarnished_legacy]]
+modId = "soulscraft"
+type = "required"
+versionRange = "[1.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "soulscraft_tarnished_legacy.mixins.json"

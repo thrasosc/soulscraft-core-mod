@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "soulscraft_tarnished_legacy:item/night_rider_chestplate"
+  }
+}
