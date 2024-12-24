@@ -22,11 +22,7 @@ public class SoulsCraftItemRegistry {
      * @return The DeferredRegister for the given mod ID.
      */
     private static DeferredRegister<Item> getOrCreateRegister(String modId) {
-        SoulsCraft.LOGGER.info("Checking or creating DeferredRegister for mod ID: " + modId);
-        return MOD_REGISTERS.computeIfAbsent(modId, id -> {
-            SoulsCraft.LOGGER.info("Creating DeferredRegister for mod ID: " + id);
-            return DeferredRegister.create(id, Registries.ITEM);
-        });
+        return MOD_REGISTERS.computeIfAbsent(modId, id -> DeferredRegister.create(id, Registries.ITEM));
     }
 
     /**
@@ -42,14 +38,8 @@ public class SoulsCraftItemRegistry {
         if (REGISTERED_ITEMS.containsKey(fullName)) {
             throw new IllegalArgumentException("Item " + fullName + " is already registered!");
         }
-
-        // Add a log to check the registration flow
-        SoulsCraft.LOGGER.info("Registering item: " + fullName);
-
         DeferredRegister<Item> register = getOrCreateRegister(modId);
         RegistrySupplier<Item> item = register.register(name, itemSupplier);
-        SoulsCraft.LOGGER.info("Item registered: " + fullName);
-
         REGISTERED_ITEMS.put(fullName, item);
         return item;
     }
@@ -66,14 +56,14 @@ public class SoulsCraftItemRegistry {
     }
 
     /**
-     * Initializes all DeferredRegisters for registration.
-     * Must be called during the mod's initialization.
+     * Initializes the DeferredRegister for a specific mod ID.
+     * This method should be called by each mod individually.
+     *
+     * @param modId The mod ID for which the DeferredRegister should be initialized.
      */
-    public static void init() {
-        SoulsCraft.LOGGER.info("Initializing DeferredRegisters...");
-        MOD_REGISTERS.forEach((modId, register) -> {
-            SoulsCraft.LOGGER.info("Registering items for mod ID: " + modId);
-            register.register(); // Ensure this is being called for each mod ID
-        });
+    public static void init(String modId) {
+        SoulsCraft.LOGGER.info("Initializing DeferredRegister for mod: " + modId);
+        DeferredRegister<Item> register = getOrCreateRegister(modId);
+        register.register(); // Initialize the DeferredRegister for this specific mod
     }
 }
