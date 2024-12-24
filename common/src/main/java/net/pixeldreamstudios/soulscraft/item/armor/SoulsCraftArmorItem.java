@@ -14,6 +14,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
@@ -23,8 +24,8 @@ public abstract class SoulsCraftArmorItem extends ArmorItem implements GeoItem {
     private final AnimatableInstanceCache cache = AzureLibUtil.createInstanceCache(this);
     private final GeoArmorRenderer armorRenderer;
 
-    public SoulsCraftArmorItem(Holder<ArmorMaterial> holder, Type type, Properties properties, GeoArmorRenderer armorRenderer) {
-        super(holder, type, properties);
+    public SoulsCraftArmorItem(Holder<ArmorMaterial> holder, Type type, GeoArmorRenderer armorRenderer) {
+        super(holder, type, new Item.Properties());
         this.armorRenderer = armorRenderer;
     }
 
