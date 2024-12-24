@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.soulscraft_core.item.armor;
+package net.pixeldreamstudios.soulscraft.item.armor;
 
 import mod.azure.azurelib.common.api.client.renderer.GeoArmorRenderer;
 import mod.azure.azurelib.common.api.common.animatable.GeoItem;

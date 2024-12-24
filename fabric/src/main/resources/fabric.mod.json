@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "soulscraft_core",
+  "id": "soulscraft",
   "version": "${version}",
-  "name": "SoulsCraft Core",
+  "name": "SoulsCraft",
   "description": "",
   "authors": [
     ""
@@ -11,18 +11,18 @@
     "homepage": ""
   },
   "license": "GPL-3.0",
-  "icon": "assets/soulscraft_core/icon.png",
+  "icon": "assets/soulscraft/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.pixeldreamstudios.soulscraft_core.fabric.SoulsCraftCoreFabric"
+      "net.pixeldreamstudios.soulscraft.fabric.SoulsCraftFabric"
     ],
     "client": [
-      "net.pixeldreamstudios.soulscraft_core.fabric.client.SoulsCraftCoreFabricClient"
+      "net.pixeldreamstudios.soulscraft.fabric.client.SoulsCraftFabricClient"
     ]
   },
   "mixins": [
-    "soulscraft_core.mixins.json"
+    "soulscraft.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.9",
@@ -30,8 +30,5 @@
     "java": ">=21",
     "architectury": ">=13.0.8",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }

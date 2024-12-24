@@ -1,9 +1,9 @@
-package net.pixeldreamstudios.soulscraft_core.fabric;
+package net.pixeldreamstudios.soulscraft.fabric;
 
-import net.pixeldreamstudios.soulscraft_core.SoulsCraftCore;
+import net.pixeldreamstudios.soulscraft.SoulsCraft;
 import net.fabricmc.api.ModInitializer;
 
-public final class SoulsCraftCoreFabric implements ModInitializer {
+public final class SoulsCraftFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -11,6 +11,6 @@ public final class SoulsCraftCoreFabric implements ModInitializer {
         // Proceed with mild caution.
 
         // Run our common setup.
-        SoulsCraftCore.init();
+        SoulsCraft.init();
     }
 }

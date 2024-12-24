@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.soulscraft_core.item.armor;
+package net.pixeldreamstudios.soulscraft.item.armor;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;

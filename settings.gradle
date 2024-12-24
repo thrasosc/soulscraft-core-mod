@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'soulscraft_core'
+rootProject.name = 'soulscraft'
 
 include 'common'
 include 'fabric'

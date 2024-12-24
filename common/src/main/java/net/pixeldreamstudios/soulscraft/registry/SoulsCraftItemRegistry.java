@@ -1,16 +1,17 @@
-package net.pixeldreamstudios.soulscraft_core.registry;
+package net.pixeldreamstudios.soulscraft.registry;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
+import net.pixeldreamstudios.soulscraft.SoulsCraft;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
 public class SoulsCraftItemRegistry {
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create("coremodid", Registries.ITEM);
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(SoulsCraft.MOD_ID, Registries.ITEM);
     private static final Map<String, RegistrySupplier<Item>> REGISTERED_ITEMS = new HashMap<>();
 
     public static void init() {
