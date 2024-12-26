@@ -65,7 +65,7 @@ public class ItemRegistry {
 }
 ```
 
-After calling `ItemRegistry.init()` in your main class, make sure to call `SoulsCraftItemRegistry.init(TestMod.MOD_ID);` *after* it.
+After calling `ItemRegistry.init()` in your main class, make sure to call `SoulsCraftItemRegistry.init(TestMod.MOD_ID)` *after* it.
 
 ---
 
