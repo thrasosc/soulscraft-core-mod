@@ -14,35 +14,40 @@
    After creating the project, wait for it to finish building. Then, in the root `build.gradle` file, include the following in the `repositories` inside of `subprojects`:
    ```groovy
    maven { url 'https://maven.azuredoom.com/mods' }
-   mavenLocal()
+   maven {
+      url 'https://maven.pkg.github.com/thrasosc/soulscraft-core-mod'
+      credentials {
+         username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+         password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+      }
+   }
    ```
-   The `mavenLocal()` repository will be explained later.
    
    In `common/build.gradle` include the following dependencies:
    ```groovy
    modImplementation "mod.azure.azurelib:azurelib-common-${minecraft_version}:${azurelib_version}"
-   modImplementation "net.pixeldreamstudios:soulscraft-common:${soulscraft_version}"
+   modImplementation "net.pixeldreamstudios:soulscraft-${minecraft_version}-common:${soulscraft_version}"
    ```
    
    In `fabric/build.gradle` include the following dependencies:
    ```groovy
    modImplementation "mod.azure.azurelib:azurelib-fabric-${minecraft_version}:${azurelib_version}"
-   modImplementation "net.pixeldreamstudios:soulscraft-fabric:${soulscraft_version}"
+   modImplementation "net.pixeldreamstudios:soulscraft-${minecraft_version}-fabric:${soulscraft_version}"
    ```
    
    In `neoforge/build.gradle` include the following dependencies:
    ```groovy
    modImplementation "mod.azure.azurelib:azurelib-neo-${minecraft_version}:${azurelib_version}"
-   modImplementation "net.pixeldreamstudios:soulscraft-neoforge:${soulscraft_version}"
+   modImplementation "net.pixeldreamstudios:soulscraft-${minecraft_version}-neoforge:${soulscraft_version}"
    ```
    
-   Before rebuilding, clone the latest version of the SoulsCraft core mod:
-   ```shell
-   git clone git@github.com:thrasosc/soulscraft-core-mod.git
-   ```
+   Before rebuilding, we need to set up the `GITHUB_ACTOR` and `GITHUB_TOKEN` environment variables in order to be authenticated when accessing the SoulsCraft packages (this is a limitation of hosting artifacts on GitHub).
    
-   Open the core mod in IntelliJ and wait for it to finish building. Then, run the `publishToMavenLocal` task. This will publish the artifacts to your local Maven repository at `~/.m2/repository`. The `mavenLocal()` dependency we included previously gives our project access to the `~/.m2/repository` directory.
+   To create a token on GitHub, go to https://github.com/settings/tokens and click on `Generate new token`. Make sure to generate a classic token for general use. Name your token whatever you want (e.g. "SoulsCraft Artifact Publishing"), set a long expiration date (e.g. 90 days), and tick `write:packages` & `delete:packages`, then scroll to the bottom and select `Generate token`. Copy the created token and store it somewhere safe until we set it as an environment variable. Follow [this tutorial](https://youtu.be/5BTnfpIq5mI) for creating an environment variable on Windows, and make sure to create the following two environment variables:
+   - `GITHUB_ACTOR`: this will hold the value of your GitHub username.
+   - `GITHUB_TOKEN`: this will hold the value of the token we created.
 
+   After setting these environment variables, restart IntelliJ and rebuild your project.
 </details>
 
 ---
@@ -66,21 +71,3 @@ public class ItemRegistry {
 ```
 
 After calling `ItemRegistry.init()` in your main class, make sure to call `SoulsCraftItemRegistry.init(TestMod.MOD_ID)` *after* it.
-
----
-
-## Core Mod Changes
-
-If you make any changes to the core mod, you need to follow these steps in order for the changes to take effect in the dependent mods. Simply refreshing your gradle after publishing to maven local will not work; you need to delete the caches.
-1. In the core mod, run the `publishToMavenLocal` task and wait for it to finish.
-2. Close the dependent mod from IntelliJ.
-3. Delete the following directories in the dependent mod (make sure hidden files are visible):
-   - `.gradle`
-   - `.idea`
-   - `common/.gradle`
-   - `common/build`
-   - `fabric/.gradle`
-   - `fabric/build`
-   - `neoforge/.gradle`
-   - `neoforge/build`
-4. Open the dependent mod in Intellij and wait for it to build.
