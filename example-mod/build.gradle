@@ -25,7 +25,13 @@ subprojects {
 
     repositories {
         maven { url 'https://maven.azuredoom.com/mods' }
-        mavenLocal()
+        maven {
+            url 'https://maven.pkg.github.com/thrasosc/soulscraft-core-mod'
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
     }
 
     dependencies {

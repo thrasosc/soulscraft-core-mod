@@ -36,7 +36,7 @@ dependencies {
 
     modImplementation "mod.azure.azurelib:azurelib-fabric-${minecraft_version}:${azurelib_version}"
 
-    modImplementation "net.pixeldreamstudios:soulscraft-fabric:1.0"
+    modImplementation "net.pixeldreamstudios:soulscraft-${minecraft_version}-fabric:${soulscraft_version}"
 }
 
 processResources {
