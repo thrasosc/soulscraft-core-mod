@@ -3,6 +3,7 @@ package net.pixeldreamstudios.soulscraft.registry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
+import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.pixeldreamstudios.soulscraft.SoulsCraft;
@@ -68,5 +69,20 @@ public class SoulsCraftItemRegistry {
         SoulsCraft.LOGGER.info("Initializing DeferredRegister for mod: " + modId);
         DeferredRegister<Item> register = getOrCreateRegister(modId);
         register.register(); // Initialize the DeferredRegister for this specific mod
+    }
+
+    /**
+     * Registers all registered armor items in AzArmorRendererRegistry.
+     * This method should be called by each mod individually.
+     *
+     * @param modId The mod ID for which the armor items should be registered in AzArmorRendererRegistry.
+     */
+    public static void initClient(String modId) {
+        for (Map.Entry<String, RegistrySupplier<Item>> entry : REGISTERED_ITEMS.entrySet()) {
+            Item item = entry.getValue().get();
+            if (item instanceof SoulsCraftArmorItem) {
+                AzArmorRendererRegistry.register(item, ((SoulsCraftArmorItem) item).RENDERER);
+            }
+        }
     }
 }
