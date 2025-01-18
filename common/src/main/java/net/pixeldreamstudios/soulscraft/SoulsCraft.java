@@ -10,5 +10,6 @@ public final class SoulsCraft {
 
     public static void init() {
         AzureLib.initialize();
+
     }
 }

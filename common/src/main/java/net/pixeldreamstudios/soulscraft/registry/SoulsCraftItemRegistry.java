@@ -2,9 +2,11 @@ package net.pixeldreamstudios.soulscraft.registry;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.pixeldreamstudios.soulscraft.SoulsCraft;
+import net.pixeldreamstudios.soulscraft.item.armor.SoulsCraftArmorItem;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +42,7 @@ public class SoulsCraftItemRegistry {
         }
         DeferredRegister<Item> register = getOrCreateRegister(modId);
         RegistrySupplier<Item> item = register.register(name, itemSupplier);
+        if (item instanceof SoulsCraftArmorItem) AzIdentityRegistry.register(((SoulsCraftArmorItem) item).asItem());
         REGISTERED_ITEMS.put(fullName, item);
         return item;
     }
