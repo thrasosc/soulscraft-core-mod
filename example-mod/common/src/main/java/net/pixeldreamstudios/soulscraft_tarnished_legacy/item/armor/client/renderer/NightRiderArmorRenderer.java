@@ -1,11 +1,17 @@
 package net.pixeldreamstudios.soulscraft_tarnished_legacy.item.armor.client.renderer;
 
-import mod.azure.azurelib.common.api.client.renderer.GeoArmorRenderer;
-import net.pixeldreamstudios.soulscraft_tarnished_legacy.item.armor.client.model.NightRiderArmorModel;
-import net.pixeldreamstudios.soulscraft_tarnished_legacy.item.armor.sets.NightRiderArmorItem;
+import net.minecraft.resources.ResourceLocation;
+import net.pixeldreamstudios.soulscraft.item.armor.client.renderer.SoulsCraftArmorRenderer;
+import net.pixeldreamstudios.soulscraft_tarnished_legacy.SoulsCraftTarnishedLegacy;
+import net.pixeldreamstudios.soulscraft_tarnished_legacy.item.armor.client.animator.NightRiderArmorAnimator;
 
-public class NightRiderArmorRenderer extends GeoArmorRenderer<NightRiderArmorItem> {
+public class NightRiderArmorRenderer extends SoulsCraftArmorRenderer {
+
     public NightRiderArmorRenderer() {
-        super(new NightRiderArmorModel());
+        super(
+                ResourceLocation.fromNamespaceAndPath(SoulsCraftTarnishedLegacy.MOD_ID, "geo/armor/night_rider.geo.json"),
+                ResourceLocation.fromNamespaceAndPath(SoulsCraftTarnishedLegacy.MOD_ID, "textures/armor/night_rider.png"),
+                NightRiderArmorAnimator::new
+        );
     }
 }

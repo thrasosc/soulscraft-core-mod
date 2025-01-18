@@ -13,4 +13,8 @@ public final class SoulsCraftTarnishedLegacy {
         // CALL AFTER REGISTERING ITEMS
         SoulsCraftItemRegistry.init(SoulsCraftTarnishedLegacy.MOD_ID);
     }
+
+    public static void initClient() {
+        SoulsCraftItemRegistry.initClient(MOD_ID);
+    }
 }

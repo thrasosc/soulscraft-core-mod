@@ -16,6 +16,9 @@
   "entrypoints": {
     "main": [
       "net.pixeldreamstudios.soulscraft_tarnished_legacy.fabric.SoulsCraftTarnishedLegacyFabric"
+    ],
+    "client": [
+      "net.pixeldreamstudios.soulscraft_tarnished_legacy.fabric.client.SoulsCraftTarnishedLegacyFabricClient"
     ]
   },
   "mixins": [
