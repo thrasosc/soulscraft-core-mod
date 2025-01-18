@@ -7,7 +7,7 @@ import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.pixeldreamstudios.soulscraft.SoulsCraft;
-import net.pixeldreamstudios.soulscraft.item.armor.SoulsCraftArmorItem;
+import net.pixeldreamstudios.soulscraft.item.armor.sets.SoulsCraftArmorItem;
 
 import java.util.HashMap;
 import java.util.Map;

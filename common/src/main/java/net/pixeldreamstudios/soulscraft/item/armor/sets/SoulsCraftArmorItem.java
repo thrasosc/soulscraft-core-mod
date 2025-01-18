@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.soulscraft.item.armor;
+package net.pixeldreamstudios.soulscraft.item.armor.sets;
 
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRenderer;
 import net.minecraft.core.Holder;

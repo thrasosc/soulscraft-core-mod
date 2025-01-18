@@ -1,4 +1,4 @@
-package net.pixeldreamstudios.soulscraft.item.armor.client;
+package net.pixeldreamstudios.soulscraft.item.armor.client.renderer;
 
 import mod.azure.azurelib.rewrite.animation.AzAnimator;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRenderer;
@@ -11,10 +11,6 @@ import java.util.function.Supplier;
 
 public abstract class SoulsCraftArmorRenderer extends AzArmorRenderer {
     public SoulsCraftArmorRenderer(ResourceLocation modelLocation, ResourceLocation textureLocation, Supplier<@Nullable AzAnimator<ItemStack>> animatorProvider) {
-        super(
-                AzArmorRendererConfig.builder(modelLocation, textureLocation)
-                        .setAnimatorProvider(animatorProvider)
-                        .build()
-        );
+        super(AzArmorRendererConfig.builder(modelLocation, textureLocation).setAnimatorProvider(animatorProvider).build());
     }
 }
