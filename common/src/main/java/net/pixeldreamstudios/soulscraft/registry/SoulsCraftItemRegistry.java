@@ -23,7 +23,7 @@ public class SoulsCraftItemRegistry {
     private static final Map<String, DeferredRegister<Item>> MOD_REGISTERS = new HashMap<>();
     private static final Map<String, RegistrySupplier<Item>> REGISTERED_ITEMS = new HashMap<>();
 
-    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(SoulsCraft.MOD_ID, Registries.CREATIVE_MODE_TAB);
+    private static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(SoulsCraft.MOD_ID, Registries.CREATIVE_MODE_TAB);
     public static final RegistrySupplier<CreativeModeTab> SOULSCRAFT_TARNISHED_LEGACY_TAB = TABS.register(
             "soulscraft_tarnished_legacy", // Tab ID
             () -> CreativeTabRegistry.create(
