@@ -11,8 +11,8 @@ import java.util.function.Supplier;
 public abstract class SoulsCraftArmorItem extends ArmorItem {
     public final Supplier<AzArmorRenderer> RENDERER;
 
-    public SoulsCraftArmorItem(Holder<ArmorMaterial> holder, Type type, Supplier<AzArmorRenderer> soulsCraftArmorRenderer) {
-        super(holder, type, new Item.Properties());
+    public SoulsCraftArmorItem(Holder<ArmorMaterial> holder, Type type, Supplier<AzArmorRenderer> soulsCraftArmorRenderer, Item.Properties itemProperties) {
+        super(holder, type, itemProperties);
         this.RENDERER = soulsCraftArmorRenderer;
     }
 }
