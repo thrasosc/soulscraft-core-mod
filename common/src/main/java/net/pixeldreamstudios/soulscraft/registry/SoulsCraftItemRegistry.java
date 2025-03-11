@@ -1,11 +1,16 @@
 package net.pixeldreamstudios.soulscraft.registry;
 
+import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.pixeldreamstudios.soulscraft.SoulsCraft;
 import net.pixeldreamstudios.soulscraft.item.armor.sets.SoulsCraftArmorItem;
 
@@ -17,6 +22,16 @@ public class SoulsCraftItemRegistry {
     // Map to hold DeferredRegisters for each mod ID
     private static final Map<String, DeferredRegister<Item>> MOD_REGISTERS = new HashMap<>();
     private static final Map<String, RegistrySupplier<Item>> REGISTERED_ITEMS = new HashMap<>();
+
+    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(SoulsCraft.MOD_ID, Registries.CREATIVE_MODE_TAB);
+    public static final RegistrySupplier<CreativeModeTab> SOULSCRAFT_TARNISHED_LEGACY_TAB = TABS.register(
+            "soulscraft_tarnished_legacy", // Tab ID
+            () -> CreativeTabRegistry.create(
+                    Component.translatable("category.soulscraft_tarnished_legacy"), // Tab Name
+                    () -> new ItemStack(Items.IRON_SWORD) // Icon
+            )
+    );
+
 
     /**
      * Ensures a DeferredRegister exists for the given mod ID.
@@ -69,6 +84,7 @@ public class SoulsCraftItemRegistry {
         SoulsCraft.LOGGER.info("Initializing DeferredRegister for mod: " + modId);
         DeferredRegister<Item> register = getOrCreateRegister(modId);
         register.register(); // Initialize the DeferredRegister for this specific mod
+        TABS.register();
     }
 
     /**
